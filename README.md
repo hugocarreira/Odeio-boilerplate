@@ -1,16 +1,5 @@
 # grunt-boilerplate
 
-## my personal GruntJS boilerplate
-
-### Tasks
-
-- jshint
-- concat
-- uglify
-- sass
-- cssmin
-- watch
-
 ### Install
 ```bash
 npm install
@@ -20,3 +9,12 @@ npm install
 ```bash
 grunt default
 ```
+
+### Tasks
+
+- jshint
+- concat
+- uglify
+- sass
+- cssmin
+- watch
