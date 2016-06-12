@@ -32,6 +32,25 @@ module.exports = function(grunt) {
                 dest: 'assets/css/style.min.css'
             },
         },
+        imagemin: {
+            all: {
+                options: {
+                optimizationLevel: 7
+            },
+            files: [{
+                expand: true,
+                cwd: 'dist/img/',
+                src: ['**/*.{png,jpg,gif}', '*.jpg'],
+                dest: 'assets/img/'
+            }]
+        },
+        'http-server': {
+           'dev': {
+                root: './',
+                port: 8282,
+                host: "127.0.0.1",
+            }
+        },
         watch: {
             scss: {
                 files: 'dist/css/*.scss',
@@ -42,7 +61,6 @@ module.exports = function(grunt) {
                 tasks: ['jshint']
             }
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -50,9 +68,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-http-server');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
+    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass', 'cssmin', 'imagemin', 'http-server', 'watch']);
 
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass', 'cssmin', 'cssmin' 'watch']);
-
-}
+};
