@@ -17,4 +17,6 @@ grunt default
 - uglify
 - sass
 - cssmin
+- imagemin
+- http-server
 - watch
