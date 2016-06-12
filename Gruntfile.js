@@ -35,29 +35,30 @@ module.exports = function(grunt) {
         imagemin: {
             all: {
                 options: {
-                optimizationLevel: 7
-            },
-            files: [{
-                expand: true,
-                cwd: 'dist/img/',
-                src: ['**/*.{png,jpg,gif}', '*.jpg'],
-                dest: 'assets/img/'
-            }]
+                    optimizationLevel: 7
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dist/img/',
+                    src: ['**/*.{png,jpg,gif}', '*.jpg'],
+                    dest: 'assets/img/'
+                }]
+            }
         },
         'http-server': {
            'dev': {
                 root: './',
                 port: 8282,
-                host: "127.0.0.1",
+                host: "127.0.0.1"
             }
         },
         watch: {
             scss: {
                 files: 'dist/css/*.scss',
                 tasks: ['sass']
-            }
+            },
             js: {
-                files: ['dist/js/**/*.js']
+                files: ['dist/js/**/*.js'],
                 tasks: ['jshint']
             }
         }
@@ -73,5 +74,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass', 'cssmin', 'imagemin', 'http-server', 'watch']);
+    grunt.registerTask('test', []);
 
 };
