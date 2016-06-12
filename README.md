@@ -1,4 +1,7 @@
 # ODEIO
+#### Just a simple boilerplate to create projects with Grunt and Sass
+
+## Using  
 
 ### Install
 ```bash
@@ -20,3 +23,14 @@ grunt default
 - imagemin
 - http-server
 - watch
+
+### Todo
+
+- [ ] Jade
+- [ ] Structure
+- [ ] Deploy Task
+- [ ] Builds - Development/Production Tasks
+
+### License
+
+This project is free and open source software, distributed under the The MIT License.
