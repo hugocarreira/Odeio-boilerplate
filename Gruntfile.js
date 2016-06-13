@@ -13,44 +13,44 @@ module.exports = function(grunt) {
         concat: {
         	materialize: {
         		src: ['dist/fw/materialize/js/*.js'],
-        		dest: 'assets/js/scripts.js'
+        		dest: 'src/assets/js/scripts.js'
         	},
             dist: {
                 src: ['dist/others/js/*.js'],
-                dest: 'assets/js/scripts.js'
+                dest: 'src/assets/js/scripts.js'
             }
         },
         uglify: {
         	materialize: {
         		src: ['dist/fw/materialize/js/*.js'],
-        		dest: 'assets/js/scripts.min.js'
+        		dest: 'src/assets/js/scripts.min.js'
         	},
             scripts: {
                 src: ['dist/js/*.js'],
-                dest: 'assets/js/scripts.min.js'
+                dest: 'src/assets/js/scripts.min.js'
             }
         },
         sass: {
         	materialize: {
         		files: {
-        			'assets/css/materialize.css' : 'dist/fw/materialize/sass/*.scss'
+        			'src/assets/css/materialize.css' : 'dist/fw/materialize/sass/*.scss'
         		}
         	},
             dist: {
                 files: {
-                    'assets/css/style.css' : 'dist/css/*.scss'
+                    'src/assets/css/style.css' : 'dist/css/*.scss'
                     // 'destination' : 'file'
                 }
             }
         },
         cssmin: {
         	materialize: {
-                src: ['assets/css/materialize.css'],
-                dest: 'assets/css/materialize.min.css'
+                src: ['src/assets/css/materialize.css'],
+                dest: 'src/assets/css/materialize.min.css'
             },
             dist: {
-                src: ['assets/css/style.css'],
-                dest: 'assets/css/style.min.css'
+                src: ['src/assets/css/style.css'],
+                dest: 'src/assets/css/style.min.css'
             }
         },
         imagemin: {
@@ -62,24 +62,23 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'dist/img/',
                     src: ['*.{png,jpg,gif}'],
-                    dest: 'assets/img/'
+                    dest: 'src/assets/img/'
                 }]
             }
         },
         'http-server': {
            'dev': {
-                root: './',
+                root: './src',
                 port: 8282,
                 host: "127.0.0.1"
             }
         },
         copy: {
         	materialize: {
-	        	expand: true,
-	        	cwd: 'dist/fw/materialize/fonts',
-	        	src: ['**'],
-	        	dest: 'assets/fonts/',
-	        	filter: 'isFile'
+        		files: [
+		        	{expand: true, cwd: 'dist/fw/materialize/fonts', src: ['**'], dest: 'src/assets/fonts/',filter: 'isFile'},
+		        	{expand: true, flatten: true, src: ['dist/fw/materialize/index.html'], dest: 'src/', filter: 'isFile'}
+	        	]
         	}
         },
         watch: {
