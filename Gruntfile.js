@@ -4,41 +4,41 @@ module.exports = function(grunt) {
     	pkg: grunt.file.readJSON('package.json'),
         jshint: {
         	materialize: {
-        		src: ['dist/fw/materialize/js/*.js']
+        		src: ['files/frameworks/materialize/js/*.js']
         	},
-            dist: {
-                src: ['dist/others/js/*.js']
+            files: {
+                src: ['files/others/js/*.js']
             }
         },
         concat: {
         	materialize: {
-        		src: ['dist/fw/materialize/js/*.js'],
+        		src: ['files/frameworks/materialize/js/*.js'],
         		dest: 'src/assets/js/scripts.js'
         	},
-            dist: {
-                src: ['dist/others/js/*.js'],
+            files: {
+                src: ['files/others/js/*.js'],
                 dest: 'src/assets/js/scripts.js'
             }
         },
         uglify: {
         	materialize: {
-        		src: ['dist/fw/materialize/js/*.js'],
+        		src: ['files/frameworks/materialize/js/*.js'],
         		dest: 'src/assets/js/scripts.min.js'
         	},
             scripts: {
-                src: ['dist/js/*.js'],
+                src: ['files/js/*.js'],
                 dest: 'src/assets/js/scripts.min.js'
             }
         },
         sass: {
         	materialize: {
         		files: {
-        			'src/assets/css/materialize.css' : 'dist/fw/materialize/sass/*.scss'
+        			'src/assets/css/materialize.css' : 'files/frameworks/materialize/sass/*.scss'
         		}
         	},
-            dist: {
+            files: {
                 files: {
-                    'src/assets/css/style.css' : 'dist/css/*.scss'
+                    'src/assets/css/style.css' : 'files/css/*.scss'
                     // 'destination' : 'file'
                 }
             }
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
                 src: ['src/assets/css/materialize.css'],
                 dest: 'src/assets/css/materialize.min.css'
             },
-            dist: {
+            files: {
                 src: ['src/assets/css/style.css'],
                 dest: 'src/assets/css/style.min.css'
             }
@@ -60,14 +60,14 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'dist/img/',
+                    cwd: 'files/img/',
                     src: ['*.{png,jpg,gif}'],
                     dest: 'src/assets/img/'
                 }]
             }
         },
         'http-server': {
-           'dev': {
+           dev: {
                 root: './src',
                 port: 8282,
                 host: "127.0.0.1"
@@ -76,8 +76,8 @@ module.exports = function(grunt) {
         copy: {
         	materialize: {
         		files: [
-		        	{expand: true, cwd: 'dist/fw/materialize/fonts', src: ['**'], dest: 'src/assets/fonts/',filter: 'isFile'},
-		        	{expand: true, flatten: true, src: ['dist/fw/materialize/index.html'], dest: 'src/', filter: 'isFile'}
+		        	{expand: true, cwd: 'files/frameworks/materialize/fonts', src: ['**'], dest: 'src/assets/fonts/',filter: 'isFile'},
+		        	{expand: true, flatten: true, src: ['files/frameworks/materialize/index.html'], dest: 'src/', filter: 'isFile'}
 	        	]
         	}
         },
