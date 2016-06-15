@@ -28,8 +28,8 @@ grunt default
 
 ### Todo
 
-- [ ] Jade
 - [ ] Folders Structure
+- [ ] Templates
 - [ ] Deploy Task
 - [ ] Builds - Development/Production Tasks
 
