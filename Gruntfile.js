@@ -4,25 +4,25 @@ module.exports = function(grunt) {
     	pkg: grunt.file.readJSON('package.json'),
         jshint: {
         	materialize: {
-        		src: ['files/frameworks/materialize/js/*.js']
+        		src: ['init/templates/materialize/js/**/*.js']
         	},
             files: {
-                src: ['files/others/js/*.js']
+                src: ['files/templates/others/js/*.js']
             }
         },
         concat: {
         	materialize: {
-        		src: ['files/frameworks/materialize/js/*.js'],
+        		src: ['init/templates/materialize/js/**/*.js'],
         		dest: 'src/assets/js/scripts.js'
         	},
             files: {
-                src: ['files/others/js/*.js'],
+                src: ['files/templates/others/js/*.js'],
                 dest: 'src/assets/js/scripts.js'
             }
         },
         uglify: {
         	materialize: {
-        		src: ['files/frameworks/materialize/js/*.js'],
+        		src: ['src/assets/js/scripts.js'],
         		dest: 'src/assets/js/scripts.min.js'
         	},
             scripts: {
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         sass: {
         	materialize: {
         		files: {
-        			'src/assets/css/materialize.css' : 'files/frameworks/materialize/sass/*.scss'
+        			'src/assets/css/materialize.css' : 'init/templates/materialize/sass/*.scss'
         		}
         	},
             files: {
@@ -76,10 +76,16 @@ module.exports = function(grunt) {
         copy: {
         	materialize: {
         		files: [
-		        	{expand: true, cwd: 'files/frameworks/materialize/fonts', src: ['**'], dest: 'src/assets/fonts/',filter: 'isFile'},
-		        	{expand: true, flatten: true, src: ['files/frameworks/materialize/index.html'], dest: 'src/', filter: 'isFile'}
+		        	{expand: true, cwd: 'init/templates/materialize/fonts', src: ['**'], dest: 'src/assets/fonts/', filter: 'isFile'},
+		        	{expand: true, flatten: true, src: ['init/templates/materialize/index.html'], dest: 'src/', filter: 'isFile'}
 	        	]
-        	}
+        	},
+            codeigniter: {
+                files: [
+                    {expand: true, cwd: 'init/templates/codeigniter', src: ['**'], dest: 'src/', filter: 'isFile'}
+                    // {expand: true, flatten: true, src: ['init/templates/materialize/index.html'], dest: 'src/', filter: 'isFile'}
+                ]
+            }
         },
         watch: {
             scss: {
@@ -109,7 +115,7 @@ module.exports = function(grunt) {
     	'cssmin',
     	'imagemin',
     	'copy',
-    	'http-server',
+    	'http-server'
     ]);
    	grunt.registerTask('materialize', [
    		'concat:materialize',
@@ -117,8 +123,11 @@ module.exports = function(grunt) {
    		'sass:materialize',
    		'cssmin:materialize',
    		'copy:materialize',
-   		'http-server'
+   		'http-server',
    	]);
+    grunt.registerTask('codeigniter', [
+        'copy:codeigniter'
+    ]);
     grunt.registerTask('test', []);
 
 };
