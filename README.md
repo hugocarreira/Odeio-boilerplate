@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hugocarreira/Odeio.svg?branch=master)](https://travis-ci.org/hugocarreira/Odeio)
+[![Build Status](https://travis-ci.org/hugocarreira/Odeio-boilerplate.svg?branch=master)](https://travis-ci.org/hugocarreira/Odeio-boilerplate)
 
 # ODEIO
 #### Just a simple boilerplate to create projects with Grunt and Sass
